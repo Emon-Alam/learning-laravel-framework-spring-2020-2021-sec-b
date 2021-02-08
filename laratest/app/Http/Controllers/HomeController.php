@@ -37,9 +37,16 @@ class HomeController extends Controller
     public function store(Request $req){
 
         //insert into DB or model...
-        echo $req->username;
+        //echo $req->username;
+        $userlist = $this->getUserlist();
 
-        //return view('home.list')->with('list', $userlist);
+        $newUser = ['id'=>4, 'name'=>$req['username'], 'email'=> $req['email'], 'password'=>$req['password']];
+
+        array_push($userlist,$newUser);
+
+        return view('home.list')->with('list', $userlist);
+
+        
        // return redirect('/home/userlist');
 
     }
@@ -64,8 +71,46 @@ class HomeController extends Controller
 
         //$user = ['id'=> $id, 'name'=> $req->name, 'email'->$req->email, 'password'=>$req->password];
         //updating DB or model
-        return redirect('/home/userlist');
+        //return redirect('/home/userlist');
+        $count = 0;
+        $userlist = $this->getUserlist();
+        foreach($userlist as $u){
+            if($u['id'] == $id ){
+                break;
+            }
+            $count+=1;
+        }
+
+        $userlist[$count]['name'] = $req['username'];
+        $userlist[$count]['password'] = $req['password'];
+        $userlist[$count]['email'] = $req['email'];
+
+        return view('home.list')->with('list', $userlist);
+        
     }
+    public function delete($id, Request $req){
+
+        //updating DB or model
+        return view('home.delete')->with('id', $id);
+    }
+    public function destroy($id, Request $req){
+
+        //updating DB or model
+
+        $count = 0;
+        $userlist = $this->getUserlist();
+        foreach($userlist as $u){
+            if($u['id'] == $id ){
+                break;
+            }
+            $count+=1;
+        }
+        unset($userlist[$count]);
+
+        return view('home.list')->with('list', $userlist);
+        
+    }
+    
 
     public function userlist(){
         // db model userlist
