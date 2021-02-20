@@ -7,8 +7,10 @@
     <title>Edit User</title>
 </head>
 <body>
-    <h1>Delete User</h1>
+    <h1>User Details</h1>
     <a href="/home/userlist"> Back</a>
+
+    
 			<table>
 				<tr>
 					<td>Name: </td>
@@ -31,19 +33,8 @@
 					<td>{{ $user['dept'] }}</td>
 				</tr>
 				<tr>
-					<td>
-						<h3>Are you sure?</h3>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>
-						<form method="post">
-							@csrf
-							<input type="submit" name="submit" value="Confirm">
-						</form>
-					</td>
-					<td></td>
+					<td>Type</td>
+					<td>{{ $user['type'] }}</td>
 				</tr>
 			</table>
 </body>
