@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Psy\Command\DumpCommand;
 use Illuminate\Http\Request;
 use App\User;
+use Validator;
+use App\Http\Requests\UserRequest;
 
 class HomeController extends Controller
 {
@@ -37,7 +38,7 @@ class HomeController extends Controller
         return view('home.create');
     }
 
-    public function store(Request $req){
+    public function store(UserRequest $req){
 
         $user = new User();
         $user->username = $req->username;
@@ -50,7 +51,7 @@ class HomeController extends Controller
 
         $user->save();
 
-        return redirect('/home/userlist');
+        return redirect()->route('home.userlist');
 
     }
 
