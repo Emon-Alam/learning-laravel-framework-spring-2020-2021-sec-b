@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View User List</title>
-</head>
-<body>
+@extends('layout/main')
 
-    <h1>User list</h1>
-    <a href="/home">Back</a> |
-    <a href="/logout">logout</a>
 
-    <br>
+@section('title')
+USER LIST :: Epay.com
+@endsection
 
+
+@section('page_title')
+<h1>User list</h1>
+@endsection
+
+
+
+@section('nav_bar')
+<a href="/home">Back</a> |
+<a href="/logout">logout</a>
+@endsection
+
+
+@section('main_content')
     <table border="1">
         <tr>
             <td>ID</td>
@@ -30,12 +35,11 @@
             <td>{{ $list[$i]['password'] }}</td>
             <td>{{ $list[$i]['type'] }}</td>
             <td>
-            <a href="{{ route('home.edit', [$list[$i]['userId']]) }}">Edit</a> |
+                <a href="{{ route('home.edit', [$list[$i]['userId']]) }}">Edit</a> |
                 <a href="/home/delete/{{ $list[$i]['userId'] }}">Delete</a> |
                 <a href="/home/details/{{ $list[$i]['userId'] }}">Details</a>
             </td>
         </tr>
         @endfor
     </table>
-</body>
-</html>
+@endsection
