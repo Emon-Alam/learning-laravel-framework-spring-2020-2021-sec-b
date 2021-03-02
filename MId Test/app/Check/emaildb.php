@@ -3,9 +3,9 @@
 namespace App\Check;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Contracts\Validation\Check;
+use Illuminate\Contracts\Validation\Rule;
 
-class emaildb implements Check
+class emaildb implements Rule
 {
     /**
      * Create a new Check instance.

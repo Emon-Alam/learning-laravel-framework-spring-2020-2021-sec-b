@@ -19,7 +19,7 @@ class HomeController extends Controller
 
     public function store(create_req $req){
 
-            $customer = new User();
+            $customer = new Customer();
             $customer->username         = $req->username;
             $customer->password         = $req->password;
             $customer->full_name        = $req->full_name;
@@ -29,7 +29,7 @@ class HomeController extends Controller
             $customer->city             = $req->city;
             $customer->company_name     = $req->company_name;
             $customer->user_type        = 'active';
-            $customer->date_added       = $req->date_added;
+            //$customer->date_added       = $req->date_added;
             $customer->save();
             return redirect()->route('login');
 

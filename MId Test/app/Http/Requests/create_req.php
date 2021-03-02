@@ -27,14 +27,14 @@ class create_req extends FormRequest
     public function rules()
     {
         return [
-            'full_name' => 'required|alpha|min:3|max:20',
+            'full_name' => 'required|alpha_dash|min:3|max:20',
             'username' => ['required',new usernamedb()],
             'email' => ['required','email','min:10','max:50',new emaildb()],
             'phone' => ['required','digits:11','numeric',new phonedb()],
             'city' => 'required|alpha|min:3|max:20',
             'country' => 'required|alpha|min:3|max:20',
-            'companyName' => 'required|alpha|min:3|max:20',
-            'password' => 'confirmed|required|min:6',
+            'company_name' => 'required|alpha|min:3|max:20',
+            'password' => 'required|min:6',
         ];
     }
 

@@ -2,11 +2,11 @@
 
 namespace App\Check;
 
-use Illuminate\Contracts\Validation\Check;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
 
-class phonedb implements Check
+class phonedb implements Rule
 {
     /**
      * Create a new Check instance.
