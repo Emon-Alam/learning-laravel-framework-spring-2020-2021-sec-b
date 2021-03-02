@@ -23,7 +23,7 @@ class LoginController extends Controller
                 ->first())
         {
             $req->session()->put('email', $req->email);
-            $req->session()->put('username',$req->username);
+            $req->session()->put('username',$user->username);
             $req->session()->put('usertype','admin');
             return redirect('/home');
 
@@ -34,7 +34,7 @@ class LoginController extends Controller
         {
 
             $req->session()->put('email', $req->email);
-            $req->session()->put('username',$req->username);
+            $req->session()->put('username',$user->username);
             $req->session()->put('usertype','accountant');
             return redirect('/home');
         }
@@ -44,7 +44,7 @@ class LoginController extends Controller
         {
 
             $req->session()->put('email', $req->email);
-            $req->session()->put('username',$req->username);
+            $req->session()->put('username',$user->username);
             $req->session()->put('usertype','customer');
             return redirect('/home');
         }
@@ -54,7 +54,7 @@ class LoginController extends Controller
         {
 
             $req->session()->put('email', $req->email);
-            $req->session()->put('username',$req->username);
+            $req->session()->put('username',$user->username);
             $req->session()->put('usertype','vendor');
             return redirect('/home');
         }
