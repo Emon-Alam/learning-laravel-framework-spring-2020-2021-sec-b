@@ -15,12 +15,12 @@
 			<table>
 				
 				<tr>
-					<td>Full Name: </td>
-					<td>{{$user['full_name']}}</td>
+					<td>Product Name: </td>
+					<td>{{$user['product_name']}}</td>
 				</tr>
 				<tr>
-					<td>Username</td>
-					<td>{{ $user['username']}}</td>
+					<td>Category</td>
+					<td>{{ $user['category']}}</td>
 				</tr>
 				<tr>
 					<td>Password:</td>

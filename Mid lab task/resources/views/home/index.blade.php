@@ -9,7 +9,7 @@
 <body>
 <div  style="width:100%">
 
-@yield('page_title')
+@yield('page_details')
 
 
 </div>
