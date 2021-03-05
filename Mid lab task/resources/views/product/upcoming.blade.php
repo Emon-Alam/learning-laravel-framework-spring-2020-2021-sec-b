@@ -31,7 +31,10 @@ Upcoming Product
             <td>{{$product->product_name}}</td>
             <td>{{$product->category}}</td>
             <td>{{$product->unit_price}}</td>
-            <td><a href="{{route('product.upcoming.edit',['id'=> $product->id])}}"><button >Edit</button></a></td>
+
+            <td><a href="{{route('product.upcoming.edit',['id'=> $product->id])}}"><button>Edit</button></a></td>
+            <td><a onclick="return check()" class='delete' href="{{route('product.upcoming.delete',['id'=> $product->id])}}"><button>Delete</button></a></td>
+            <td><a href="{{route('product.details',['product_id'=> $product->id,'vendor_id'=> $product->vendor_id])}}"><button>View Details</button></a></td>
             
         </tr>
     @endforeach

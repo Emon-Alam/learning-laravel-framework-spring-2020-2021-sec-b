@@ -37,7 +37,11 @@ Route::get('/system/product_management','ProductController@index')->name('produc
 
     //up- product
     Route::get('/system/product_management/upcoming_products','ProductController@upcoming')->name('product.upcoming');
+    
     Route::get('/system/product_management/upcoming_products/edit/{id}','ProductController@upcomingEdit')->name('product.upcoming.edit');
+    Route::post('/system/product_management/upcoming_products/edit/{id}','ProductController@upcomingEditUpdate');
+    Route::get('/system/product_management/upcoming_products/delete/{id}','ProductController@upcomingDelete')->name('product.upcoming.delete');
+    
     //Product_Details
     Route::get('/system/product_management/product/{product_id}/vendor_details/{vendor_id}','ProductController@productDetails')->name('product.details');
     
