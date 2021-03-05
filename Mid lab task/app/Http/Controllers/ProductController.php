@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Vendor;
+use App\Http\Requests\ProductEdit_req;
 
 
 class ProductController extends Controller
@@ -14,9 +16,8 @@ class ProductController extends Controller
     public function existing(Request $request)
     {
 
-       $products = Product::where('status','existing')
-                            ->get();
         $products = new Product;
+        $products = $products->where('status','existing');
         $hasSort = false;
 
         if($request->has('sortType'))
@@ -48,11 +49,60 @@ class ProductController extends Controller
 
         return view('product.existing')->with('products',$products);
     }
-    public function existingEdit(Request $request)
+    public function existingEdit(Request $request,$id)
     { 
 
-        return view('product.existingEdit');
+       $product = Product::where('id',$id)
+                    ->where('status','existing')            
+                    ->first();
+
+        if(isset($product))
+        {   
+            $msg ="";
+            return view('product.existingEdit',compact('msg','id','product'));
+        }
+        else
+        {
+            
+            return view('product.existingEdit')->with('msg','Product ID ERROR')->with('id',$id);
+        }
     }
+
+    public function existingEditUpdate(ProductEdit_req $request,$id)
+    { 
+
+        $product = Product::find($id);
+
+        if($product)
+        {
+            $product->product_name = $request->product_name;
+            $product->category = $request->category;
+            $product->unit_price = $request->unit_price;
+            $product->status = $request->status;
+            if($product->save())
+            {
+                $msg = "Product Updated Successfully!, Product ID Updated : ".$id;
+                $request->session()->flash('productUpdateMsgSucc',$msg);
+                return redirect()->route('product.existing');
+            }
+            else
+            {
+
+                $request->session()->flash('productUpdateMsgFail','Product Updated Failed');
+                return redirect()->route('product.existing.edit',['id'=>$id]);
+            }
+
+        }
+        else
+        {
+            $request->session()->flash('productUpdateMsgFail','Product Updated Failed');
+            return redirect()->route('product.existing.edit',['id'=>$id]);
+            
+        }
+
+    }
+
+    
     public function existingDelete(Request $request,$id)
     { 
         $product = Product::find($id);
@@ -71,7 +121,7 @@ class ProductController extends Controller
     {   
         $products = Product::where('status','upcoming')
                             ->get();
-                            //->paginate(20);
+                            //;
 
         return view('product.upcoming')->with('products',$products);
     }

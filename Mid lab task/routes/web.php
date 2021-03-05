@@ -27,16 +27,19 @@ Route::get('/logout', 'LogoutController@index')->name('logout');
 Route::get('/registration', 'RegistrationController@index')->name('register');
 Route::post('/registration', 'RegistrationController@store')->name('name');
 //product
-Route::get('/system/product_information','ProductController@index')->name('product');
+Route::get('/system/product_management','ProductController@index')->name('product');
 //ex-product
-    Route::get('/system/product_information/existing_products','ProductController@existing')->name('product.existing');
-    Route::get('/system/product_information/existing_products/edit/{id}','ProductController@existingEdit')->name('product.existing.edit');
-    Route::get('/system/product_information/existing_products/delete/{id}','ProductController@existingDelete')->name('product.existing.delete');
-    Route::get('/system/product_information/existing_products/product/{product_id}/vendor_details/{vendor_id}','ProductController@existingDetails')->name('product.existing.details');
+    Route::get('/system/product_management/existing_products','ProductController@existing')->name('product.existing');
+    Route::get('/system/product_management/existing_products/edit/{id}','ProductController@existingEdit')->name('product.existing.edit');
+    Route::post('/system/product_management/existing_products/edit/{id}','ProductController@existingEditUpdate');
+    Route::get('/system/product_management/existing_products/delete/{id}','ProductController@existingDelete')->name('product.existing.delete');
+    Route::get('/system/product_management/existing_products/product/{product_id}/vendor_details/{vendor_id}','ProductController@existingDetails')->name('product.existing.details');
 
     //up- product
-    Route::get('/system/product_information/upcoming_products','ProductController@upcoming')->name('product.upcoming');
-    Route::get('/system/product_information/upcoming_products/edit/{id}','ProductController@upcomingEdit')->name('product.upcoming.edit');
-
+    Route::get('/system/product_management/upcoming_products','ProductController@upcoming')->name('product.upcoming');
+    Route::get('/system/product_management/upcoming_products/edit/{id}','ProductController@upcomingEdit')->name('product.upcoming.edit');
+    //Product_Details
+    Route::get('/system/product_management/product/{product_id}/vendor_details/{vendor_id}','ProductController@productDetails')->name('product.details');
+    
     //add-product
-    Route::get('/system/product_information/add_product','ProductController@add')->name('product.adding');
+    Route::get('/system/product_management/add_product','ProductController@add')->name('product.adding');

@@ -28,8 +28,7 @@ Existing Products
 @endif
 
 
-<h1>Existing Product List</h1>
-<br>
+
 
 
 <a href="{{route('product.existing')}}">Existing Product</a>
@@ -80,10 +79,7 @@ Existing Products
 
 </table>
 <br>
-    <div >
-        {{$products->links()}}
-    </div>
-
+    
 <a href="{{route('product')}}"><button > BACK</button></a><br>
 <a href="{{route('logout')}}"><button >Logout</button></a>
 
