@@ -66,8 +66,9 @@ Sales Channel
         </tbody>
     
     </table>
+    
 </fieldset>
-
-<a href="{{route('root')}}"><button style="margin:10px">Go Back</button></a>
+<a href="{{route('index')}}"><button>BACK</button></a><br>
+<a href="{{route('logout')}}"><button >Logout</button></a>
 
 @endSection

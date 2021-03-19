@@ -13,7 +13,7 @@ class Sell_req extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

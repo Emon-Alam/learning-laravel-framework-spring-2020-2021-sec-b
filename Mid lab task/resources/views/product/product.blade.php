@@ -15,7 +15,7 @@ Product Information
 <a href="{{route('product.upcoming')}}">Upcoming Product</a>
 <a href="{{route('product.adding')}}">Add Product</a>
 <br>
-
+<a href="{{route('index')}}"><button>BACK</button></a><br>
 <a href="{{route('logout')}}"><button >Logout</button></a>
 
 

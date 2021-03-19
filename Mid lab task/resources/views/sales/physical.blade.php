@@ -31,7 +31,7 @@ Physical Store
 
 </table>
 
-<a href="{{route('sales.physical.logs')}}"><button style="margin:10px">View Sales Logs</button></a><br>
+<a href="{{route('sales.physical.logs')}}"><button >View Sales Logs</button></a><br>
 
 @foreach ($errors->all() as $err)
         <p style="color:red">{{$err}}</p>
@@ -42,39 +42,39 @@ Physical Store
 @csrf
     <table>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Customer Name</td>
+                <td >Customer Name</td>
                 <td><input type="text" name="customer_name" id="" value="{{old('customer_name')}}"></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Address</td>
+                <td >Address</td>
                 <td><input type="text" name="address" id="" value="{{old('address')}}"></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Phone</td>
+                <td >Phone</td>
                 <td><input type="text" name="phone" id="" value="{{old('phone')}}"></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Product Id</td>
+                <td >Product Id</td>
                 <td><input type="text" name="product_id" id="" value="{{old('product_id')}}"></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Product Name</td>
+                <td >Product Name</td>
                 <td><input type="text" name="product_name" id="" value="{{old('product_name')}}"></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Unit Price</td>
+                <td >Unit Price</td>
                 <td><input type="number" name="unit_price" id="" value="{{old('unit_price')}}"></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Quantity</td>
+                <td >Quantity</td>
                 <td><input type="number" name="quantity" id="" value="{{old('quantity')}}"></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Total Price</td>
+                <td >Total Price</td>
                 <td><input type="number" name="total_price" value="{{old('total_price')}}" id=""></td>
         </tr>
         <tr>
-                <td style="margin-right:5px;padding-right:25px;">Payment Type</td>
+                <td >Payment Type</td>
                 <td>
                     <select name="payment_type" id="">
                         <option value="">Select Payment Type</option>

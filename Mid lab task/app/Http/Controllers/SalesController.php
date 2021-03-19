@@ -99,13 +99,13 @@ class SalesController extends Controller
         $info = $this->saleInfoArray();
 
         $maxSoldProduct = DB::select(DB::raw("Select product_id,sum(quantity) from physical_store_channel GROUP BY product_id ORDER BY sum(quantity) DESC limit 1"))[0];
-        
+       //$maxSoldProduct = DB::select(DB::raw("Select product_id,sum(quantity) from physical_store_channel GROUP BY product_id DESC limit 1"))[0];
         $mostSoldProduct = PhysicalStore::select('product_name')
                         ->where('product_id',$maxSoldProduct->product_id)
                         ->first();
 
                         
-        //$averageAmountList = DB::select(DB::raw("SELECT sum(total_price) as avgprice from physical_store_channel where Month(date_sold) = Month(CURRENT_DATE)"))[0];
+        
         $averageAmountList = PhysicalStore::whereMonth('date_sold',date('m'))
                                             ->sum('total_price') ;
                                             
